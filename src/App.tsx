@@ -1,47 +1,11 @@
 import React from "react";
-import {
-  Banner,
-  Tabs,
-  Benefits,
-  Starbusiness,
-  Order,
-  Useful,
-  CallUs,
-  Footer,
-} from "./components";
+import Order from "./components/Order";
 import "./App.css";
-import { useTranslation } from "react-i18next";
-import { animateScroll } from "react-scroll";
 
 function App() {
-  const { t, i18n } = useTranslation();
-  const [lang, setLang] = React.useState("ru");
-  const orderRef: any = React.useRef(null);
-
-  const handleLangChange = (lang: string) => {
-    setLang(lang);
-    i18n.changeLanguage(lang);
-  };
-
-  const scrollToOrderRef = () => {
-    console.log(orderRef);
-    animateScroll.scrollTo(orderRef.current.offsetTop);
-  };
-
   return (
     <div>
-      <Banner
-        scrollToOrder={scrollToOrderRef}
-        lang={lang}
-        changeLang={handleLangChange}
-      />
-      <Benefits />
-      <Tabs />
-      <Order refProp={orderRef} />
-      <Starbusiness />
-      <Useful />
-      <CallUs />
-      <Footer />
+      <Order />
     </div>
   );
 }
